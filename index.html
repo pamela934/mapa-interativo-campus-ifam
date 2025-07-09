@@ -34,18 +34,18 @@
       color: #fff;
       font-weight: 500;
       cursor: pointer;
-      position: relative;
+      position: relative; /* Mantido para o botão Idiomas */
     }
 
     nav a:hover {
       color: #d2ffe3;
     }
 
-    /* Menu idiomas */
+    /* Menu idiomas - Estilos adicionados/restituídos */
     #menu-idiomas {
       position: absolute;
-      top: 100%;
-      right: 0;
+      top: 100%; /* Posiciona abaixo do botão */
+      right: 0; /* Alinha à direita do botão */
       background: white;
       border: 1px solid #ccc;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -53,6 +53,11 @@
       width: 120px;
       border-radius: 4px;
       overflow: hidden;
+      display: none; /* Inicia oculto */
+    }
+
+    #menu-idiomas.show {
+      display: block; /* Mostra quando a classe 'show' é adicionada */
     }
 
     #menu-idiomas div {
@@ -86,22 +91,21 @@
     }
 
     .mapa {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
 
-@media (min-width: 768px) {
-  .mapa {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
-  }
-}
-
+    @media (min-width: 768px) {
+      .mapa {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+      }
+    }
 
     .mapa .imagem-mapa {
       position: relative;
@@ -128,6 +132,7 @@
       font-family: Arial, sans-serif;
       font-size: 16px;
       text-align: left;
+      max-width: 350px;
     }
 
     .legenda h2 {
@@ -137,15 +142,23 @@
     .item-legenda {
       display: flex;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 25px; /* Ajustei para um valor numérico */
+      white-space: nowrap;
+    }
+
+    .item-legenda a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
     }
 
     .bolinha {
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      display: inline-block;
       margin-right: 8px;
+      flex-shrink: 0;
     }
 
     section#sobre {
@@ -222,24 +235,110 @@
 
       <div class="legenda">
         <h2 id="titulo-legenda">Legenda dos Campi IFAM</h2>
-        <div class="item-legenda"><span class="bolinha" style="background-color: red;"></span> São Gabriel da Cachoeira</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: yellow;"></span> Tabatinga</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: blue;"></span> Maués</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: orange;"></span> Boca do Acre</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: purple;"></span> Eirunepé</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: pink;"></span> Parintins</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: cyan;"></span> Itacoatiara</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: brown;"></span> Manacapuru</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: magenta;"></span> Humaitá</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: gray;"></span> Lábrea</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: teal;"></span> Tefé</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: navy;"></span> Presidente Figueiredo</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: limegreen;"></span> Manaus Zona Leste (Tour 360°)</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: darkred;"></span> Manaus Centro</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: olive;"></span> Manaus Distrito Industrial</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: gold;"></span> Iranduba</div>
-        <div class="item-legenda"><span class="bolinha" style="background-color: green;"></span> Coari</div>
+        <div class="item-legenda">
+          <a href="https://pamela934.github.io/sao-gabriel-da-cachoeira/">
+            <span class="bolinha" style="background-color: red;"></span> São Gabriel da Cachoeira
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/tabatinga-new/">
+            <span class="bolinha" style="background-color: yellow;"></span> Tabatinga
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 28px;'>
+          <a href="https://pamela934.github.io/pasta-tour/maues/">
+            <span class="bolinha" style="background-color: blue;"></span> Maués
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/boca-do-acre/">
+            <span class="bolinha" style="background-color: orange;"></span> Boca do Acre
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/eurinep-/">
+            <span class="bolinha" style="background-color: purple;"></span> Eirunepé
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/parintins/">
+            <span class="bolinha" style="background-color: pink;"></span> Parintins
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/itacoatiara/#">
+            <span class="bolinha" style="background-color: cyan;"></span> Itacoatiara
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/manacapuru-past/">
+            <span class="bolinha" style="background-color: brown;"></span> Manacapuru
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/humaita/">
+            <span class="bolinha" style="background-color: magenta;"></span> Humaitá
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/l-brea/">
+            <span class="bolinha" style="background-color: gray;"></span> Lábrea
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://www2.ifam.edu.br/campus/tefe">
+            <span class="bolinha" style="background-color: teal;"></span> Tefé
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/presidente-past/">
+            <span class="bolinha" style="background-color: navy;"></span> Presidente Figueiredo
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="teste3.html" title="Manaus Zona Leste (Tour 360°)" target="_blank">
+            <span class="bolinha" style="background-color: limegreen;"></span> Manaus Zona Leste (Tour 360°)
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/centro/">
+            <span class="bolinha" style="background-color: darkred;"></span> Manaus Centro
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px;'>
+          <a href="https://pamela934.github.io/distrito-industrial/">
+            <span class="bolinha" style="background-color: olive;"></span> Manaus Distrito Industrial
+          </a>
+        </div>
+
+        <div class="item-legenda" style='margin-top: 30px ;'>
+          <a href="https://www2.ifam.edu.br/campus/iranduba">
+            <span class="bolinha" style="background-color: gold;"></span> Iranduba
+          </a>
+        </div>
+
+        <div class="item-legenda" style="margin-top: 30px; margin-left: 0.3px;">
+          <a href="https://pamela934.github.io/coari/">
+            <span class="bolinha" style="background-color: green;"></span> Coari
+          </a>
+        </div>
+
       </div>
+
     </div>
 
     <section id="sobre">
@@ -260,86 +359,149 @@
   </footer>
 
   <script>
+    // Objeto de traduções
+    const translations = {
+      pt: {
+        welcome_title: "BEM-VINDO AO IFAM",
+        explore_campus: "Escolha o campus para explorar",
+        about_title: "Sobre o Tour Virtual IFAM",
+        about_p1: "O Tour Virtual IFAM é uma iniciativa voltada à promoção do acesso à informação sobre os campi do Instituto Federal do Amazonas (IFAM). Por meio de um mapa interativo, estudantes, responsáveis, visitantes e a comunidade em geral podem explorar os diversos campi espalhados pelo estado do Amazonas.",
+        about_p2: "A proposta visa aproximar a comunidade da estrutura física do IFAM, incentivando a busca por educação pública, gratuita e de qualidade, além de facilitar o conhecimento das localizações, cursos ofertados e peculiaridades de cada campus.",
+        objectives_title: "Objetivos",
+        objective1: "Promover o conhecimento dos campi do IFAM de forma interativa.",
+        objective2: "Estimular o interesse de novos estudantes pela instituição.",
+        objective3: "Facilitar o acesso a informações sobre localização e estrutura.",
+        nav_home: "Início",
+        nav_tour: "Tour Virtual",
+        nav_about: "Sobre",
+        nav_languages: "Idiomas",
+        nav_contact: "Contato",
+        legend_title: "Legenda dos Campi IFAM"
+      },
+      en: {
+        welcome_title: "WELCOME TO IFAM",
+        explore_campus: "Choose the campus to explore",
+        about_title: "About the IFAM Virtual Tour",
+        about_p1: "The IFAM Virtual Tour is an initiative aimed at promoting access to information about the campuses of the Federal Institute of Amazonas (IFAM). Through an interactive map, students, guardians, visitors, and the general community can explore the various campuses spread throughout the state of Amazonas.",
+        about_p2: "The proposal aims to bring the community closer to the physical structure of IFAM, encouraging the pursuit of public, free, and quality education, as well as facilitating knowledge of locations, courses offered, and peculiarities of each campus.",
+        objectives_title: "Objectives",
+        objective1: "Promote knowledge of IFAM campuses in an interactive way.",
+        objective2: "Encourage new students' interest in the institution.",
+        objective3: "Facilitate access to information about location and structure.",
+        nav_home: "Home",
+        nav_tour: "Virtual Tour",
+        nav_about: "About",
+        nav_languages: "Languages",
+        nav_contact: "Contact",
+        legend_title: "IFAM Campuses Legend"
+      },
+      es: {
+        welcome_title: "BIENVENIDO A IFAM",
+        explore_campus: "Elija el campus para explorar",
+        about_title: "Acerca del Tour Virtual IFAM",
+        about_p1: "El Tour Virtual IFAM es una iniciativa destinada a promover el acceso a la información sobre los campus del Instituto Federal de Amazonas (IFAM). A través de un mapa interactivo, estudiantes, tutores, visitantes y la comunidad en general pueden explorar los diversos campus distribuidos por el estado de Amazonas.",
+        about_p2: "La propuesta busca acercar a la comunidad a la estructura física de IFAM, fomentando la búsqueda de educación pública, gratuita y de calidad, además de facilitar el conocimiento de las ubicaciones, cursos ofrecidos y particularidades de cada campus.",
+        objectives_title: "Objetivos",
+        objective1: "Promover el conocimiento de los campus de IFAM de forma interactiva.",
+        objective2: "Estimular el interés de nuevos estudiantes por la institución.",
+        objective3: "Facilitar el acceso a información sobre ubicación y estructura.",
+        nav_home: "Inicio",
+        nav_tour: "Tour Virtual",
+        nav_about: "Acerca de",
+        nav_languages: "Idiomas",
+        nav_contact: "Contacto",
+        legend_title: "Leyenda de los Campus IFAM"
+      }
+    };
+
+    // Função para carregar o idioma
+    function loadLanguage(lang) {
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+
+      const t = translations[lang];
+
+      // Títulos
+      document.querySelector('h1').textContent = t.welcome_title;
+      document.querySelector('h2').textContent = t.explore_campus;
+      document.getElementById('sobre').querySelector('h2').textContent = t.about_title;
+      document.getElementById('sobre').querySelector('p:nth-of-type(1)').textContent = t.about_p1;
+      document.getElementById('sobre').querySelector('p:nth-of-type(2)').textContent = t.about_p2;
+      document.getElementById('sobre').querySelector('h3').textContent = t.objectives_title;
+
+      // Objetivos
+      const objetivos = document.querySelector('#sobre ul');
+      objetivos.innerHTML = `
+        <li>${t.objective1}</li>
+        <li>${t.objective2}</li>
+        <li>${t.objective3}</li>
+      `;
+
+      // Navegação
+      document.getElementById('btn-inicio').textContent = t.nav_home;
+      document.getElementById('btn-tour').textContent = t.nav_tour;
+      document.getElementById('btn-sobre').textContent = t.nav_about;
+      document.getElementById('btn-idioma').textContent = t.nav_languages; // O próprio botão de idiomas
+      document.querySelector('nav a[href="#"]:last-child').textContent = t.nav_contact; // Seleciona o último link para Contato
+
+      // Legenda
+      document.getElementById('titulo-legenda').textContent = t.legend_title;
+      // Note: O texto dos campi na legenda (ex: "São Gabriel da Cachoeira") não é traduzido por este script,
+      // pois eles são nomes próprios.
+    }
+
+    // Lógica do botão de Idiomas
     const btnIdioma = document.getElementById('btn-idioma');
 
     btnIdioma.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // Impede que o clique se propague para o body e feche o menu imediatamente
+
       let menu = document.getElementById('menu-idiomas');
-      if (menu) {
-        menu.remove();
+
+      if (menu) { // Se o menu já existe, remove-o (fecha)
+        menu.classList.remove('show'); // Remove a classe 'show' para ocultar
+        setTimeout(() => menu.remove(), 200); // Espera um pouco antes de remover para animação (opcional)
         return;
       }
 
+      // Se o menu não existe, cria-o
       menu = document.createElement('div');
       menu.id = 'menu-idiomas';
       menu.innerHTML = `
         <div data-lang="pt">Português</div>
         <div data-lang="en">English</div>
+        <div data-lang="es">Español</div>
       `;
+
+      // Adiciona o menu como filho do botão de idiomas para posicionamento
       btnIdioma.appendChild(menu);
 
+      // Adiciona a classe 'show' para tornar visível (com a transição CSS)
+      setTimeout(() => menu.classList.add('show'), 10); // Pequeno atraso para permitir transição
+
+      // Adiciona event listeners para os itens do menu de idiomas
       menu.querySelectorAll('div').forEach(item => {
         item.addEventListener('click', () => {
-          carregarIdioma(item.getAttribute('data-lang'));
-          menu.remove();
+          loadLanguage(item.getAttribute('data-lang')); // Carrega o idioma selecionado
+          menu.classList.remove('show'); // Oculta o menu
+          setTimeout(() => menu.remove(), 200); // Remove após ocultar
         });
       });
     });
 
-    document.body.addEventListener('click', () => {
+    // Fecha o menu de idiomas se clicar em qualquer lugar fora dele
+    document.body.addEventListener('click', (e) => {
       const menu = document.getElementById('menu-idiomas');
-      if (menu) menu.remove();
+      // Verifica se o clique não foi dentro do menu ou no botão de idiomas
+      if (menu && !btnIdioma.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('show');
+        setTimeout(() => menu.remove(), 200);
+      }
     });
 
-    function carregarIdioma(lang) {
-      if (lang === 'pt') {
-        document.documentElement.lang = 'pt-BR';
-        document.querySelector('h1').textContent = 'BEM-VINDO AO IFAM';
-        document.querySelector('h2').textContent = 'Escolha o campus para explorar';
-        document.getElementById('sobre').querySelector('h2').textContent = 'Sobre o Tour Virtual IFAM';
-        document.getElementById('sobre').querySelector('p:nth-of-type(1)').textContent = 'O Tour Virtual IFAM é uma iniciativa voltada à promoção do acesso à informação sobre os campi do Instituto Federal do Amazonas (IFAM). Por meio de um mapa interativo, estudantes, responsáveis, visitantes e a comunidade em geral podem explorar os diversos campi espalhados pelo estado do Amazonas.';
-        document.getElementById('sobre').querySelector('p:nth-of-type(2)').textContent = 'A proposta visa aproximar a comunidade da estrutura física do IFAM, incentivando a busca por educação pública, gratuita e de qualidade, além de facilitar o conhecimento das localizações, cursos ofertados e peculiaridades de cada campus.';
-        document.getElementById('sobre').querySelector('h3').textContent = 'Objetivos';
-        const objetivos = document.querySelector('#sobre ul');
-        objetivos.innerHTML = `
-          <li>Promover o conhecimento dos campi do IFAM de forma interativa.</li>
-          <li>Estimular o interesse de novos estudantes pela instituição.</li>
-          <li>Facilitar o acesso a informações sobre localização e estrutura.</li>
-        `;
-        // Navegação
-        document.getElementById('btn-inicio').textContent = 'Início';
-        document.getElementById('btn-tour').textContent = 'Tour Virtual';
-        document.getElementById('btn-sobre').textContent = 'Sobre';
-        document.getElementById('btn-idioma').textContent = 'Idiomas';
-        // Contato
-        document.querySelector('nav a[href="#"]').textContent = 'Contato';
-        // Legenda
-        document.getElementById('titulo-legenda').textContent = 'Legenda dos Campi IFAM';
-      } else if (lang === 'en') {
-        document.documentElement.lang = 'en';
-        document.querySelector('h1').textContent = 'WELCOME TO IFAM';
-        document.querySelector('h2').textContent = 'Choose the campus to explore';
-        document.getElementById('sobre').querySelector('h2').textContent = 'About the IFAM Virtual Tour';
-        document.getElementById('sobre').querySelector('p:nth-of-type(1)').textContent = 'The IFAM Virtual Tour is an initiative aimed at promoting access to information about the campuses of the Federal Institute of Amazonas (IFAM). Through an interactive map, students, guardians, visitors, and the general community can explore the various campuses spread throughout the state of Amazonas.';
-        document.getElementById('sobre').querySelector('p:nth-of-type(2)').textContent = 'The proposal aims to bring the community closer to the physical structure of IFAM, encouraging the pursuit of public, free, and quality education, as well as facilitating knowledge of locations, courses offered, and peculiarities of each campus.';
-        document.getElementById('sobre').querySelector('h3').textContent = 'Objectives';
-        const objetivos = document.querySelector('#sobre ul');
-        objetivos.innerHTML = `
-          <li>Promote knowledge of IFAM campuses in an interactive way.</li>
-          <li>Encourage new students' interest in the institution.</li>
-          <li>Facilitate access to information about location and structure.</li>
-        `;
-        // Navegação
-        document.getElementById('btn-inicio').textContent = 'Home';
-        document.getElementById('btn-tour').textContent = 'Virtual Tour';
-        document.getElementById('btn-sobre').textContent = 'About';
-        document.getElementById('btn-idioma').textContent = 'Languages';
-        // Contato
-        document.querySelector('nav a[href="#"]').textContent = 'Contact';
-        // Legenda
-        document.getElementById('titulo-legenda').textContent = 'IFAM Campuses Legend';
-      }
-    }
+    // Carregar idioma padrão ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+        loadLanguage('pt'); // Carrega Português como padrão
+    });
   </script>
 </body>
 </html>
