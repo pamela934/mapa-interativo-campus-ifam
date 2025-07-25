@@ -16,7 +16,7 @@
     /* BOTÃO MENU */
     .menu-btn {
       position: fixed;
-      top: 40px;  /* posição do botão */
+      top: 40px;
       left: 19px;
       background-color: white;
       border: none;
@@ -38,7 +38,7 @@
       height: 100%;
       width: 200px;
       position: fixed;
-      top: 70px;  /* posição dos links */
+      top: 70px;
       left: -200px;
       background-color: white;
       box-shadow: 2px 0 5px rgba(0,0,0,0.2);
@@ -47,7 +47,6 @@
       z-index: 1000;
     }
 
-    /* Extensão do fundo branco acima da sidebar */
     .sidebar::before {
       content: '';
       position: absolute;
@@ -68,7 +67,7 @@
       padding-bottom: 8px;
     }
 
-    /* IFRAME COM O TOUR */
+    /* CONTAINER DO TOUR */
     .iframe-container {
       width: 100vw;
       height: 100vh;
@@ -92,24 +91,20 @@
 
 <!-- MENU LATERAL -->
 <div class="sidebar" id="sidebar">
-  <a href="https://kuula.co/share/collection/711DL?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=0&alpha=0.60&inst=0" target="tour">Área Externa</a>
+  <a href="https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0" target="tour">Área Externa</a>
   <a href="https://kuula.co/share/collection/71Dg1?logo=1&info=1&fs=1&vr=0&sd=1&autorotate=0.12&thumbs=0&alpha=0.60&inst=0" target="tour">Biblioteca</a>
 </div>
 
-<!-- TOUR -->
+<!-- CONTEÚDO PRINCIPAL -->
 <div class="iframe-container">
-  <iframe name="tour" src="src="https://kuula.co/share/collection/7DNGv?logo=1&info=1&fs=0&vr=0&sd=1&autorotate=0.12&thumbs=-1&alpha=0.60&inst=0"></iframe>"
+  <iframe name="tour" src="https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0"></iframe>
 </div>
 
 <!-- SCRIPT -->
 <script>
   function toggleMenu() {
     const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.left === "0px") {
-      sidebar.style.left = "-200px";
-    } else {
-      sidebar.style.left = "0px";
-    }
+    sidebar.style.left = sidebar.style.left === "0px" ? "-200px" : "0px";
   }
 </script>
 
