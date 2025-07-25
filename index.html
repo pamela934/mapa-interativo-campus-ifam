@@ -361,148 +361,168 @@
   <script>
     // Objeto de traduções
     const translations = {
-      pt: {
-        welcome_title: "BEM-VINDO AO IFAM",
-        explore_campus: "Escolha o campus para explorar",
-        about_title: "Sobre o Tour Virtual IFAM",
-        about_p1: "O Tour Virtual IFAM é uma iniciativa voltada à promoção do acesso à informação sobre os campi do Instituto Federal do Amazonas (IFAM). Por meio de um mapa interativo, estudantes, responsáveis, visitantes e a comunidade em geral podem explorar os diversos campi espalhados pelo estado do Amazonas.",
-        about_p2: "A proposta visa aproximar a comunidade da estrutura física do IFAM, incentivando a busca por educação pública, gratuita e de qualidade, além de facilitar o conhecimento das localizações, cursos ofertados e peculiaridades de cada campus.",
-        objectives_title: "Objetivos",
-        objective1: "Promover o conhecimento dos campi do IFAM de forma interativa.",
-        objective2: "Estimular o interesse de novos estudantes pela instituição.",
-        objective3: "Facilitar o acesso a informações sobre localização e estrutura.",
-        nav_home: "Início",
-        nav_tour: "Tour Virtual",
-        nav_about: "Sobre",
-        nav_languages: "Idiomas",
-        nav_contact: "Contato",
-        legend_title: "Legenda dos Campi IFAM"
-      },
-      en: {
-        welcome_title: "WELCOME TO IFAM",
-        explore_campus: "Choose the campus to explore",
-        about_title: "About the IFAM Virtual Tour",
-        about_p1: "The IFAM Virtual Tour is an initiative aimed at promoting access to information about the campuses of the Federal Institute of Amazonas (IFAM). Through an interactive map, students, guardians, visitors, and the general community can explore the various campuses spread throughout the state of Amazonas.",
-        about_p2: "The proposal aims to bring the community closer to the physical structure of IFAM, encouraging the pursuit of public, free, and quality education, as well as facilitating knowledge of locations, courses offered, and peculiarities of each campus.",
-        objectives_title: "Objectives",
-        objective1: "Promote knowledge of IFAM campuses in an interactive way.",
-        objective2: "Encourage new students' interest in the institution.",
-        objective3: "Facilitate access to information about location and structure.",
-        nav_home: "Home",
-        nav_tour: "Virtual Tour",
-        nav_about: "About",
-        nav_languages: "Languages",
-        nav_contact: "Contact",
-        legend_title: "IFAM Campuses Legend"
-      },
-      es: {
-        welcome_title: "BIENVENIDO A IFAM",
-        explore_campus: "Elija el campus para explorar",
-        about_title: "Acerca del Tour Virtual IFAM",
-        about_p1: "El Tour Virtual IFAM es una iniciativa destinada a promover el acceso a la información sobre los campus del Instituto Federal de Amazonas (IFAM). A través de un mapa interactivo, estudiantes, tutores, visitantes y la comunidad en general pueden explorar los diversos campus distribuidos por el estado de Amazonas.",
-        about_p2: "La propuesta busca acercar a la comunidad a la estructura física de IFAM, fomentando la búsqueda de educación pública, gratuita y de calidad, además de facilitar el conocimiento de las ubicaciones, cursos ofrecidos y particularidades de cada campus.",
-        objectives_title: "Objetivos",
-        objective1: "Promover el conocimiento de los campus de IFAM de forma interactiva.",
-        objective2: "Estimular el interés de nuevos estudiantes por la institución.",
-        objective3: "Facilitar el acceso a información sobre ubicación y estructura.",
-        nav_home: "Inicio",
-        nav_tour: "Tour Virtual",
-        nav_about: "Acerca de",
-        nav_languages: "Idiomas",
-        nav_contact: "Contacto",
-        legend_title: "Leyenda de los Campus IFAM"
-      }
+        pt: {
+            welcome_title: "BEM-VINDO AO IFAM",
+            explore_campus: "Escolha o campus para explorar",
+            about_title: "Sobre o Tour Virtual IFAM",
+            about_p1: "O Tour Virtual IFAM é uma iniciativa voltada à promoção do acesso à informação sobre os campi do Instituto Federal do Amazonas (IFAM). Por meio de um mapa interativo, estudantes, responsáveis, visitantes e a comunidade em geral podem explorar os diversos campi espalhados pelo estado do Amazonas.",
+            about_p2: "A proposta visa aproximar a comunidade da estrutura física do IFAM, incentivando a busca por educação pública, gratuita e de qualidade, além de facilitar o conhecimento das localizações, cursos ofertados e peculiaridades de cada campus.",
+            objectives_title: "Objetivos",
+            objective1: "Promover o conhecimento dos campi do IFAM de forma interativa.",
+            objective2: "Estimular o interesse de novos estudantes pela instituição.",
+            objective3: "Facilitar o acesso a informações sobre localização e estrutura.",
+            nav_home: "Início",
+            nav_tour: "Tour Virtual",
+            nav_about: "Sobre",
+            nav_languages: "Idiomas",
+            nav_contact: "Contato",
+            legend_title: "Legenda dos Campi IFAM"
+        },
+        en: {
+            welcome_title: "WELCOME TO IFAM",
+            explore_campus: "Choose the campus to explore",
+            about_title: "About the IFAM Virtual Tour",
+            about_p1: "The IFAM Virtual Tour is an initiative aimed at promoting access to information about the campuses of the Federal Institute of Amazonas (IFAM). Through an interactive map, students, guardians, visitors, and the general community can explore the various campuses spread throughout the state of Amazonas.",
+            about_p2: "The proposal aims to bring the community closer to the physical structure of IFAM, encouraging the pursuit of public, free, and quality education, as well as facilitating knowledge of locations, courses offered, and peculiarities of each campus.",
+            objectives_title: "Objectives",
+            objective1: "Promote knowledge of IFAM campuses in an interactive way.",
+            objective2: "Encourage new students' interest in the institution.",
+            objective3: "Facilitate access to information about location and structure.",
+            nav_home: "Home",
+            nav_tour: "Virtual Tour",
+            nav_about: "About",
+            nav_languages: "Languages",
+            nav_contact: "Contact",
+            legend_title: "IFAM Campuses Legend"
+        },
+        es: {
+            welcome_title: "BIENVENIDO A IFAM",
+            explore_campus: "Elija el campus para explorar",
+            about_title: "Acerca del Tour Virtual IFAM",
+            about_p1: "El Tour Virtual IFAM es una iniciativa destinada a promover el acceso a la información sobre los campus del Instituto Federal de Amazonas (IFAM). A través de un mapa interactivo, estudiantes, tutores, visitantes y la comunidad en general pueden explorar los diversos campus distribuidos por el estado de Amazonas.",
+            about_p2: "La propuesta busca acercar a la comunidad a la estructura física de IFAM, fomentando la búsqueda de educación pública, gratuita y de calidad, además de facilitar el conocimiento de las ubicaciones, cursos ofrecidos y particularidades de cada campus.",
+            objectives_title: "Objetivos",
+            objective1: "Promover el conocimiento de los campus de IFAM de forma interactiva.",
+            objective2: "Estimular el interés de nuevos estudiantes por la institución.",
+            objective3: "Facilitar el acceso a información sobre ubicación y estructura.",
+            nav_home: "Inicio",
+            nav_tour: "Tour Virtual",
+            nav_about: "Acerca de",
+            nav_languages: "Idiomas",
+            nav_contact: "Contacto",
+            legend_title: "Leyenda de los Campus IFAM"
+        },
+        nhgantu: { // Note a chave 'nhgantu'
+            welcome_title: "PURÃGA PESIKA UFAM UPE",
+            explore_campus: "KUA CAMPUS UPE PEPARAWAKA MAÃ PEPUTARIWA",
+            about_title: "SESEWARA KUA TOUR SIKAISÁ AMURUPIWA IFAM",
+            about_p1: "TOUR SIKAISÁ AMURUPIWA IFAM AÉ YEPE YUPIRŨGÁ MÃDUARISÁ UYUIRI ARÃ UMUKAME SIKAISÁ RUPI MAÃ ŨBEU SESEWARA KUA CAMPUS INSTITUTO FEDERAL DO AMAZONAS (IFAM).",
+            about_p2: "KUA MAYÉ UMUKAMESÁ KUA IWÍ RESEWARA KUA UMUSARA TAYUMESÁ RUPI, UYŨBUESARA ITA, UMASÁ SESE, TASIKAWA ITA TAMAÃ...",
+            objectives_title: "MAYÉ YAPUTARIWA",
+            objective1: "YMUYÃ YAMUSASÁ KUA MAYÉ YAKUASÁ KUA CAMPUS IFAM MAYÉ YAYUMESÁ RUPI.",
+            objective2: "KUA UMUKIRĨBA ARÃ TASIKARI  KUA UYŨBUESARA RUKA KUA PISASUWA UYŨBUESARA ITA",
+            objective3: "IWASUĨMA KURI UPITÁ TASIKARI ARÃ TAMAÃ SESEWARA MAME UPITÁ KUA UKAWASU",
+            nav_home: "PISAWA",
+            nav_tour: "TOUR VIRTUAL",
+            nav_about: "SESEWARA",
+            nav_languages: "NHEENGATU",
+            nav_contact: "YUKUA",
+            legend_title: "TETAMA KUA CAMPUS IFAM"
+        }
     };
 
     // Função para carregar o idioma
     function loadLanguage(lang) {
-      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
 
-      const t = translations[lang];
+        const t = translations[lang];
 
-      // Títulos
-      document.querySelector('h1').textContent = t.welcome_title;
-      document.querySelector('h2').textContent = t.explore_campus;
-      document.getElementById('sobre').querySelector('h2').textContent = t.about_title;
-      document.getElementById('sobre').querySelector('p:nth-of-type(1)').textContent = t.about_p1;
-      document.getElementById('sobre').querySelector('p:nth-of-type(2)').textContent = t.about_p2;
-      document.getElementById('sobre').querySelector('h3').textContent = t.objectives_title;
+        // Títulos
+        document.querySelector('h1').textContent = t.welcome_title;
+        document.querySelector('h2').textContent = t.explore_campus;
+        document.getElementById('sobre').querySelector('h2').textContent = t.about_title;
+        document.getElementById('sobre').querySelector('p:nth-of-type(1)').textContent = t.about_p1;
+        document.getElementById('sobre').querySelector('p:nth-of-type(2)').textContent = t.about_p2;
+        document.getElementById('sobre').querySelector('h3').textContent = t.objectives_title;
 
-      // Objetivos
-      const objetivos = document.querySelector('#sobre ul');
-      objetivos.innerHTML = `
-        <li>${t.objective1}</li>
-        <li>${t.objective2}</li>
-        <li>${t.objective3}</li>
-      `;
+        // Objetivos
+        const objetivos = document.querySelector('#sobre ul');
+        objetivos.innerHTML = `
+            <li>${t.objective1}</li>
+            <li>${t.objective2}</li>
+            <li>${t.objective3}</li>
+        `;
 
-      // Navegação
-      document.getElementById('btn-inicio').textContent = t.nav_home;
-      document.getElementById('btn-tour').textContent = t.nav_tour;
-      document.getElementById('btn-sobre').textContent = t.nav_about;
-      document.getElementById('btn-idioma').textContent = t.nav_languages; // O próprio botão de idiomas
-      document.querySelector('nav a[href="#"]:last-child').textContent = t.nav_contact; // Seleciona o último link para Contato
+        // Navegação
+        document.getElementById('btn-inicio').textContent = t.nav_home;
+        document.getElementById('btn-tour').textContent = t.nav_tour;
+        document.getElementById('btn-sobre').textContent = t.nav_about;
+        document.getElementById('btn-idioma').textContent = t.nav_languages; // O próprio botão de idiomas
+        document.querySelector('nav a[href="#"]:last-child').textContent = t.nav_contact; // Seleciona o último link para Contato
 
-      // Legenda
-      document.getElementById('titulo-legenda').textContent = t.legend_title;
-      // Note: O texto dos campi na legenda (ex: "São Gabriel da Cachoeira") não é traduzido por este script,
-      // pois eles são nomes próprios.
+        // Legenda
+        document.getElementById('titulo-legenda').textContent = t.legend_title;
+        // Note: O texto dos campi na legenda (ex: "São Gabriel da Cachoeira") não é traduzido por este script,
+        // pois eles são nomes próprios.
     }
 
     // Lógica do botão de Idiomas
     const btnIdioma = document.getElementById('btn-idioma');
 
     btnIdioma.addEventListener('click', (e) => {
-      e.stopPropagation(); // Impede que o clique se propague para o body e feche o menu imediatamente
+        e.stopPropagation(); // Impede que o clique se propague para o body e feche o menu imediatamente
 
-      let menu = document.getElementById('menu-idiomas');
+        let menu = document.getElementById('menu-idiomas');
 
-      if (menu) { // Se o menu já existe, remove-o (fecha)
-        menu.classList.remove('show'); // Remove a classe 'show' para ocultar
-        setTimeout(() => menu.remove(), 200); // Espera um pouco antes de remover para animação (opcional)
-        return;
-      }
+        if (menu) { // Se o menu já existe, remove-o (fecha)
+            menu.classList.remove('show'); // Remove a classe 'show' para ocultar
+            setTimeout(() => menu.remove(), 200); // Espera um pouco antes de remover para animação (opcional)
+            return;
+        }
 
-      // Se o menu não existe, cria-o
-      menu = document.createElement('div');
-      menu.id = 'menu-idiomas';
-      menu.innerHTML = `
-        <div data-lang="pt">Português</div>
-        <div data-lang="en">English</div>
-        <div data-lang="es">Español</div>
-      `;
+        // Se o menu não existe, cria-o
+        menu = document.createElement('div');
+        menu.id = 'menu-idiomas';
+        menu.innerHTML = `
+            <div data-lang="pt">Português</div>
+            <div data-lang="en">English</div>
+            <div data-lang="es">Español</div>
+            <div data-lang="nhgantu">Nheengatu</div> `;
 
-      // Adiciona o menu como filho do botão de idiomas para posicionamento
-      btnIdioma.appendChild(menu);
+        // Adiciona o menu como filho do botão de idiomas para posicionamento
+        btnIdioma.appendChild(menu);
 
-      // Adiciona a classe 'show' para tornar visível (com a transição CSS)
-      setTimeout(() => menu.classList.add('show'), 10); // Pequeno atraso para permitir transição
+        // Adiciona a classe 'show' para tornar visível (com a transição CSS)
+        setTimeout(() => menu.classList.add('show'), 10); // Pequeno atraso para permitir transição
 
-      // Adiciona event listeners para os itens do menu de idiomas
-      menu.querySelectorAll('div').forEach(item => {
-        item.addEventListener('click', () => {
-          loadLanguage(item.getAttribute('data-lang')); // Carrega o idioma selecionado
-          menu.classList.remove('show'); // Oculta o menu
-          setTimeout(() => menu.remove(), 200); // Remove após ocultar
+        // Adiciona event listeners para os itens do menu de idiomas
+        menu.querySelectorAll('div').forEach(item => {
+            item.addEventListener('click', () => {
+                loadLanguage(item.getAttribute('data-lang')); // Carrega o idioma selecionado
+                menu.classList.remove('show'); // Oculta o menu
+                setTimeout(() => menu.remove(), 200); // Remove após ocultar
+            });
         });
-      });
     });
 
     // Fecha o menu de idiomas se clicar em qualquer lugar fora dele
     document.body.addEventListener('click', (e) => {
-      const menu = document.getElementById('menu-idiomas');
-      // Verifica se o clique não foi dentro do menu ou no botão de idiomas
-      if (menu && !btnIdioma.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove('show');
-        setTimeout(() => menu.remove(), 200);
-      }
+        const menu = document.getElementById('menu-idiomas');
+        // Verifica se o clique não foi dentro do menu ou no botão de idiomas
+        if (menu && !btnIdioma.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove('show');
+            setTimeout(() => menu.remove(), 200);
+        }
     });
 
     // Carregar idioma padrão ao carregar a página
     document.addEventListener('DOMContentLoaded', () => {
         loadLanguage('pt'); // Carrega Português como padrão
     });
-  </script>
+</script>
+
+</body>
+</html>
 </body>
 </html>
 
