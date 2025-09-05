@@ -100,4 +100,61 @@
   <button onclick="loadTour('ctSala')">📖 CT Sala de Aula</button>
 
   <!-- Submenu Vídeos -->
-  <button onclick="toggleSubmenu('videos-submenu')">🎥 Vídeos ▼</button
+  <button onclick="toggleSubmenu('videos-submenu')">🎥 Vídeos ▼</button>
+  <div id="videos-submenu" class="submenu">
+    <button onclick="loadTour('videoArea1')">Área Externa 1</button>
+    <button onclick="loadTour('videoArea2')">Área Externa 2</button>
+    <button onclick="loadTour('videoArea3')">Área Externa 3</button>
+     </div>
+</div>
+
+<!-- iframe principal -->
+<iframe id="tour-frame" src=""></iframe>
+
+<script>
+  const sidebar = document.getElementById("sidebar");
+
+  function toggleMenu() {
+    sidebar.classList.toggle("open");
+  }
+
+  function toggleSubmenu(id) {
+    const submenu = document.getElementById(id);
+    submenu.style.display = (submenu.style.display === "flex") ? "none" : "flex";
+  }
+
+  function loadTour(local) {
+    const iframe = document.getElementById("tour-frame");
+
+    // Tours Kuula
+    if (local === "ifam") {
+      iframe.src = "https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+    } else if (local === "ctExterna") {
+      iframe.src = "https://kuula.co/share/collection/7DLZZ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+    } else if (local === "ctEstudo") {
+      iframe.src = "https://kuula.co/share/collection/7DLcY?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+    } else if (local === "ctSala") {
+      iframe.src = "https://kuula.co/share/collection/7DLcJ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=4&alpha=0.60&inst=0";
+    }
+
+    // Vídeos
+    else if (local === "videoArea1") {
+      iframe.src = "https://www.youtube-nocookie.com/embed/8oVMFy6K3jU?autoplay=1&rel=0";
+    } else if (local === "videoArea2") {
+      iframe.src = "https://www.youtube-nocookie.com/embed/rd0KI295Cqs?autoplay=1&rel=0";
+    } else if (local === "videoArea3") {
+      iframe.src = "https://www.youtube.com/embed/oLT2IPlLQMc?autoplay=1&rel=0";
+   }
+    sidebar.classList.remove("open");
+  }
+
+  // Carrega o tour inicial
+  window.onload = () => {
+    sidebar.classList.remove("open");
+    loadTour('ifam');
+  };
+</script>
+
+</body>
+</html>
+
