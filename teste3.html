@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tour Virtual IFAM</title>
-  <!-- Fonte Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background-color: #000; }
+    * {
+      box-sizing: border-box;
+    }
 
-    /* Botão hambúrguer */
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
     .menu-btn {
       position: fixed;
       top: 20px;
@@ -21,8 +23,9 @@
       z-index: 1001;
       padding: 10px;
       border-radius: 5px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
+
     .menu-btn div {
       width: 25px;
       height: 3px;
@@ -30,7 +33,6 @@
       margin: 5px 0;
     }
 
-    /* Sidebar */
     .sidebar {
       height: 100%;
       width: 240px;
@@ -38,66 +40,66 @@
       top: 0;
       left: -260px;
       background-color: #f2f2f2;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
       transition: left 0.3s ease;
       padding: 80px 20px 20px;
       z-index: 1000;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
     }
-    .sidebar.open { left: 0; }
+
+    .sidebar.open {
+      left: 0;
+    }
 
     .sidebar button {
       background: none;
       border: none;
-      padding: 12px;
-      font-weight: 500;
+      padding: 10px;
+      font-weight: bold;
       color: #006633;
       cursor: pointer;
       text-align: left;
       font-size: 16px;
-      border-radius: 5px;
-      transition: background 0.2s;
+      border-bottom: 1px solid #ddd;
     }
-    .sidebar button:hover { background-color: #d4f0d4; }
 
-    /* Submenu vídeos */
+    .sidebar button:hover {
+      background-color: #e0e0e0;
+    }
+
     .submenu {
       display: none;
       flex-direction: column;
-      gap: 5px;
       margin-left: 15px;
     }
 
-    /* iframe ocupa toda a tela */
+    .submenu.open {
+      display: flex;
+    }
+
     #tour-frame {
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 100vw;
       height: 100vh;
       border: none;
-      z-index: 0;
-      background-color: #000;
+      background: black;
     }
   </style>
 </head>
 <body>
 
-<!-- Botão Hambúrguer -->
 <button class="menu-btn" onclick="toggleMenu()">
   <div></div>
   <div></div>
   <div></div>
 </button>
 
-<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <button onclick="loadTour('ifam')">🌳 IFAM Área Externa</button>
-  <button onclick="loadTour('ctExterna')">🖥️ CT Área Externa</button>
-  <button onclick="loadTour('ctEstudo')">📚 CT Sala de Estudos</button>
-  <button onclick="loadTour('ctSala')">📖 CT Sala de Aula</button>
+  <button onclick="loadTour('ctExterna')">💻 CT Área Externa</button>
+  <button onclick="loadTour('ctEstudo')">📖 CT Sala de Estudo</button>
+  <button onclick="loadTour('ctSala')">📚 CT Sala de Aula</button>
 
   <!-- Submenu Vídeos -->
   <button onclick="toggleSubmenu('videos-submenu')">🎥 Vídeos ▼</button>
@@ -105,10 +107,10 @@
     <button onclick="loadTour('videoArea1')">Área Externa 1</button>
     <button onclick="loadTour('videoArea2')">Área Externa 2</button>
     <button onclick="loadTour('videoArea3')">Área Externa 3</button>
-     </div>
+    <button onclick="loadTour('videoArea4')">Área Externa 4</button>
+  </div>
 </div>
 
-<!-- iframe principal -->
 <iframe id="tour-frame" src=""></iframe>
 
 <script>
@@ -119,14 +121,12 @@
   }
 
   function toggleSubmenu(id) {
-    const submenu = document.getElementById(id);
-    submenu.style.display = (submenu.style.display === "flex") ? "none" : "flex";
+    document.getElementById(id).classList.toggle("open");
   }
 
   function loadTour(local) {
     const iframe = document.getElementById("tour-frame");
 
-    // Tours Kuula
     if (local === "ifam") {
       iframe.src = "https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
     } else if (local === "ctExterna") {
@@ -144,11 +144,13 @@
       iframe.src = "https://www.youtube-nocookie.com/embed/rd0KI295Cqs?autoplay=1&rel=0";
     } else if (local === "videoArea3") {
       iframe.src = "https://www.youtube.com/embed/oLT2IPlLQMc?autoplay=1&rel=0";
-   }
+    } else if (local === "videoArea4") {
+      iframe.src = "https://www.youtube.com/embed/FhDJbbdWMIo?autoplay=1&rel=0";
+    }
+
     sidebar.classList.remove("open");
   }
 
-  // Carrega o tour inicial
   window.onload = () => {
     sidebar.classList.remove("open");
     loadTour('ifam');
@@ -157,4 +159,3 @@
 
 </body>
 </html>
-
