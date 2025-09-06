@@ -1,100 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tour Virtual IFAM</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<title>Tour Virtual IFAM + Galeria</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Arial', sans-serif; overflow-x:hidden; }
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+  /* ---------------- Sidebar e Menu ---------------- */
+  .menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .menu-btn div { width:25px; height:3px; background:black; margin:5px 0; }
 
-    .menu-btn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: white;
-      border: none;
-      cursor: pointer;
-      z-index: 1001;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
+  .sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    top:0; left:-260px;
+    background-color:#f2f2f2;
+    box-shadow:2px 0 5px rgba(0,0,0,0.2);
+    transition:left 0.3s ease;
+    padding:80px 20px 20px;
+    z-index:1000;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+  }
+  .sidebar.open { left:0; }
+  .sidebar button {
+    background:none; border:none; padding:10px; font-weight:bold;
+    color:#006633; cursor:pointer; text-align:left; font-size:16px;
+    border-bottom:1px solid #ddd;
+  }
+  .sidebar button:hover { background-color:#e0e0e0; }
 
-    .menu-btn div {
-      width: 25px;
-      height: 3px;
-      background-color: black;
-      margin: 5px 0;
-    }
+  .submenu { display:none; flex-direction:column; margin-left:15px; }
+  .submenu.open { display:flex; }
 
-    .sidebar {
-      height: 100%;
-      width: 240px;
-      position: fixed;
-      top: 0;
-      left: -260px;
-      background-color: #f2f2f2;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-      transition: left 0.3s ease;
-      padding: 80px 20px 20px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+  /* ---------------- Iframe do Tour ---------------- */
+  #tour-frame {
+    width:100vw;
+    height:100vh;
+    border:none;
+    background:black;
+  }
 
-    .sidebar.open {
-      left: 0;
-    }
+  /* ---------------- Galeria de Fotos ---------------- */
+  #gallery-section {
+    position: relative;
+    width:100vw;
+    height:100vh;
+    background: url('fachada.jpg') no-repeat center center/cover;
+    filter: blur(8px) brightness(0.7);
+    z-index:-1;
+  }
 
-    .sidebar button {
-      background: none;
-      border: none;
-      padding: 10px;
-      font-weight: bold;
-      color: #006633;
-      cursor: pointer;
-      text-align: left;
-      font-size: 16px;
-      border-bottom: 1px solid #ddd;
-    }
+  #gallery-container {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:20px; gap:15px;
+  }
 
-    .sidebar button:hover {
-      background-color: #e0e0e0;
-    }
+  #gallery-container .thumbs {
+    display:flex; flex-wrap:wrap; gap:15px; justify-content:center;
+  }
 
-    .submenu {
-      display: none;
-      flex-direction: column;
-      margin-left: 15px;
-    }
+  #gallery-container img {
+    width:200px; border-radius:12px; cursor:pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border:2px solid rgba(255,255,255,0.8); z-index:1;
+  }
 
-    .submenu.open {
-      display: flex;
-    }
+  #gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow:0 6px 16px rgba(0,0,0,0.4);
+  }
 
-    #tour-frame {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      background: black;
-    }
-  </style>
+  #gallery-caption {
+    color:white; font-size:18px;
+    margin-top:10px; text-shadow:1px 1px 4px rgba(0,0,0,0.7);
+  }
+
+  #lightbox {
+    display:none; position:fixed; top:0; left:0; width:100vw; height:100vh;
+    background: rgba(0,0,0,0.9); justify-content:center; align-items:center;
+    z-index:10000; flex-direction:column;
+  }
+  #lightbox img { max-width:90%; max-height:80%; border-radius:8px; margin-bottom:20px; }
+  #close-lightbox { font-size:50px; color:white; cursor:pointer; }
+</style>
 </head>
 <body>
 
+<!-- Menu Hamburguer -->
 <button class="menu-btn" onclick="toggleMenu()">
   <div></div>
   <div></div>
   <div></div>
 </button>
 
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <button onclick="loadTour('ifam')">🌳 IFAM Área Externa</button>
   <button onclick="loadTour('ctExterna')">💻 CT Área Externa</button>
@@ -109,52 +124,89 @@
     <button onclick="loadTour('videoArea3')">Área Externa 3</button>
     <button onclick="loadTour('videoArea4')">Área Externa 4</button>
   </div>
+
+  <!-- Galeria de Fotos -->
+  <button onclick="showGallery()">📸 Galeria de Fotos</button>
 </div>
 
+<!-- Iframe do tour -->
 <iframe id="tour-frame" src=""></iframe>
+
+<!-- Galeria -->
+<div id="gallery-section" style="display:none;"></div>
+<div id="gallery-container" style="display:none;">
+  <div class="thumbs">
+    <img src="imagens/biblioteca.jpg" alt="Biblioteca">
+    <img src="imagens/biblioteca2.jpg" alt="Biblioteca 2">
+    <img src="imagens/biblioteca3.jpg" alt="Biblioteca 3">
+  </div>
+  <div id="gallery-caption">Clique na imagem para ampliar</div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="Imagem ampliada">
+  <span id="close-lightbox">&times;</span>
+</div>
 
 <script>
   const sidebar = document.getElementById("sidebar");
+  const gallerySection = document.getElementById("gallery-section");
+  const galleryContainer = document.getElementById("gallery-container");
+  const galleryImages = document.querySelectorAll('#gallery-container img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close-lightbox');
+  const tourFrame = document.getElementById('tour-frame');
 
-  function toggleMenu() {
-    sidebar.classList.toggle("open");
-  }
-
-  function toggleSubmenu(id) {
-    document.getElementById(id).classList.toggle("open");
-  }
+  function toggleMenu() { sidebar.classList.toggle("open"); }
+  function toggleSubmenu(id) { document.getElementById(id).classList.toggle("open"); }
 
   function loadTour(local) {
-    const iframe = document.getElementById("tour-frame");
+    gallerySection.style.display='none';
+    galleryContainer.style.display='none';
+    tourFrame.style.display='block';
 
     if (local === "ifam") {
-      iframe.src = "https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+      tourFrame.src="https://kuula.co/share/collection/7DLXH?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
     } else if (local === "ctExterna") {
-      iframe.src = "https://kuula.co/share/collection/7DLZZ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+      tourFrame.src="https://kuula.co/share/collection/7DLZZ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
     } else if (local === "ctEstudo") {
-      iframe.src = "https://kuula.co/share/collection/7DLcY?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
+      tourFrame.src="https://kuula.co/share/collection/7DLcY?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=0&alpha=0.60&inst=0";
     } else if (local === "ctSala") {
-      iframe.src = "https://kuula.co/share/collection/7DLcJ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=4&alpha=0.60&inst=0";
-    }
-
-    // Vídeos
-    else if (local === "videoArea1") {
-      iframe.src = "https://www.youtube-nocookie.com/embed/8oVMFy6K3jU?autoplay=1&rel=0";
+      tourFrame.src="https://kuula.co/share/collection/7DLcJ?logo=1&info=1&fs=0&vr=0&gyro=0&autorotate=0.08&thumbs=4&alpha=0.60&inst=0";
+    } else if (local === "videoArea1") {
+      tourFrame.src="https://www.youtube-nocookie.com/embed/8oVMFy6K3jU?autoplay=1&rel=0";
     } else if (local === "videoArea2") {
-      iframe.src = "https://www.youtube-nocookie.com/embed/rd0KI295Cqs?autoplay=1&rel=0";
+      tourFrame.src="https://www.youtube-nocookie.com/embed/rd0KI295Cqs?autoplay=1&rel=0";
     } else if (local === "videoArea3") {
-      iframe.src = "https://www.youtube.com/embed/oLT2IPlLQMc?autoplay=1&rel=0";
+      tourFrame.src="https://www.youtube.com/embed/oLT2IPlLQMc?autoplay=1&rel=0";
     } else if (local === "videoArea4") {
-      iframe.src = "https://www.youtube.com/embed/FhDJbbdWMIo?autoplay=1&rel=0";
+      tourFrame.src="https://www.youtube.com/embed/FhDJbbdWMIo?autoplay=1&rel=0";
     }
 
     sidebar.classList.remove("open");
   }
 
-  window.onload = () => {
+  function showGallery() {
+    tourFrame.style.display='none';
+    gallerySection.style.display='block';
+    galleryContainer.style.display='flex';
     sidebar.classList.remove("open");
-    loadTour('ifam');
-  };
+  }
+
+  // Lightbox
+  galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display='flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.style.display='none');
+  lightbox.addEventListener('click', e => { if(e.target===lightbox) lightbox.style.display='none'; });
+
+  window.onload = () => { sidebar.classList.remove("open"); loadTour('ifam'); };
 </script>
 
 </body>
