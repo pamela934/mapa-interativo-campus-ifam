@@ -193,19 +193,27 @@
   margin-top: 2rem;
 }
 
-.creditos {
-  margin-top: 0.5rem;       /* distância do footer */
-  font-size: 0.7rem !important; /* força o tamanho menor */
-  line-height: 1.2 !important;
-  color: #fff;              /* mantém cor do footer */
-  text-align: center;
+.accordion-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 }
 
-.creditos p {
-  margin: 0.2rem 0 !important;
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  font-size: 0.75rem;
+  color: #fff;
+  margin-top: 0.3rem;
 }
 
-
+.accordion-content p {
+  margin: 0.2rem 0;
+}
 
   </style>
 </head>
@@ -371,23 +379,34 @@
 
   <footer>
   © 2025 Instituto Federal do Amazonas - IFAM
+  <button class="accordion-btn">Créditos ▼</button>
+  <div class="accordion-content">
+    <p><strong>Este trabalho foi desenvolvido através do Edital N° 005/2024/DPI/PPGI/IFAM/IC</strong> ...</p>
+    <p><strong>Projeto de pesquisa:</strong> O tour virtual como ferramenta...</p>
+    <p><strong>Área de Conhecimento:</strong> Sociolinguística e Dialetologia</p>
+    <p><strong>Grupo de Pesquisa:</strong> Linguagem, Arte, Comunicação e Ciência - LACC</p>
+    <p><strong>Linha de Pesquisa:</strong> Língua, Interação Sociocultural e Letramento</p>
+    <p><strong>Coordenador:</strong> Prof. Dr. Ademar dos Santos Lima</p>
+    <p><strong>Aluno bolsista:</strong> Luís Fernando dos Santos Anunciação</p>
+    <p><strong>Pesquisadora colaboradora:</strong> Pamela do Nascimento Bernardo</p>
+  </div>
 </footer>
 
-<div class="creditos">
-  <p><strong>Este trabalho foi desenvolvido através do Edital N° 005/2024/DPI/PPGI/IFAM/IC</strong>  
-  (Processo Seletivo de Projetos de Iniciação Científica com estudantes de ensino médio do IFAM/CMZL - Ciclo 2024-2025 - bolsistas e voluntários)</p>
+<script>
+  const accordionBtn = document.querySelector('.accordion-btn');
+  const accordionContent = document.querySelector('.accordion-content');
 
-  <p><strong>Projeto de pesquisa:</strong> O tour virtual como ferramenta de acesso ao espaço histórico-cultural dos campi do Instituto Federal do Amazonas</p>
-
-  <p><strong>Área de Conhecimento:</strong> Sociolinguística e Dialetologia</p>
-  <p><strong>Grupo de Pesquisa:</strong> Linguagem, Arte, Comunicação e Ciência - LACC</p>
-  <p><strong>Linha de Pesquisa:</strong> Língua, Interação Sociocultural e Letramento</p>
-
-  <p><strong>Coordenador:</strong> Prof. Dr. Ademar dos Santos Lima</p>
-  <p><strong>Aluno bolsista:</strong> Luís Fernando dos Santos Anunciação</p>
-  <p><strong>Pesquisadora colaboradora:</strong> Pamela do Nascimento Bernardo</p>
-</div>
-
+  accordionBtn.addEventListener('click', () => {
+    if (accordionContent.style.maxHeight) {
+      accordionContent.style.maxHeight = null; // fecha
+      accordionBtn.textContent = "Créditos ▼";
+    } else {
+      accordionContent.style.maxHeight = accordionContent.scrollHeight + "px"; // abre
+      accordionBtn.textContent = "Créditos ▲";
+    }
+  });
+</script>
+</body>
 
   <script>
     // Objeto de traduções
